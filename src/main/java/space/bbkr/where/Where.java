@@ -35,9 +35,11 @@ public class Where implements ModInitializer {
 										}
 									}
 
-									context.getSource().sendFeedback(target.getDisplayName().copy()
+									context.getSource().sendFeedback(new LiteralText(target.getName().asString())
 											.append(" is at " + target.getBlockPos().getX() + ", "
-													+ target.getBlockPos().getY() + ", " + target.getBlockPos().getZ()),
+													+ target.getBlockPos().getY() + ", " + target.getBlockPos().getZ()
+                                                                                                        + " in " 
+												        + target.getEntityWorld().getRegistryKey().getValue().toString()),
 											true);
 									return 1;
 								})
